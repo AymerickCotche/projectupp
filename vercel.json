@@ -1,8 +1,0 @@
-{
-  "crons": [
-    {
-      "path": "/api/grabDocs",
-      "schedule": "0 * * * *"
-    }
-  ]
-}
