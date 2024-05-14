@@ -1,0 +1,50 @@
+{
+  "name": "upp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx prisma generate && next dev",
+    "build": "npx prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "@reduxjs/toolkit": "^2.0.1",
+    "@sendgrid/mail": "^8.1.0",
+    "bcrypt": "^5.1.1",
+    "cheerio": "^1.0.0-rc.12",
+    "flatpickr": "^4.6.13",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "next": "14.0.4",
+    "next-auth": "^4.24.5",
+    "node-sellsy": "^1.5.5",
+    "nodemailer": "^6.9.8",
+    "npm": "^10.4.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-email-editor": "^1.7.9",
+    "react-flatpickr": "^3.10.13",
+    "react-redux": "^9.0.4",
+    "react-spinners": "^0.13.8"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.14",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-flatpickr": "^3.8.11",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "prisma": "^5.13.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

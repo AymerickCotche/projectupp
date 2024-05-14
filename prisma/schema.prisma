@@ -1,0 +1,124 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id            String      @default(cuid()) @id
+  email         String      @unique
+  password      String
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  updatedAt     DateTime    @updatedAt @map(name: "updated_at")
+  @@map(name: "users")
+}
+
+model UPP_Contact {
+  id            String           @default(cuid()) @id
+  email         String           @unique
+  nom           String
+  prenom        String
+  telephone     String
+  groups        UPP_Grouplist[]
+  demandes      UPP_Demande[]
+  contactFactures   UPP_ContactFacture[]
+  contactEvents UPP_ContactEvents[]
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_Grouplist {
+  id            String           @default(cuid()) @id
+  nom           String           @unique
+  description   String?
+  private       Boolean?         @default(false)
+  contacts      UPP_Contact[]
+  campaigns     UPP_Campaign[]
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_Campaign {
+  id            String           @default(cuid()) @id
+  nom           String           
+  description   String           
+  date          String
+  emailTextId   String
+  schedulled    Boolean          @default(false)
+  finished      Boolean          @default(false)
+  cronId        String?
+  totalToSend   Int?
+  numberSent    Int?
+  emailText     UPP_Emailtext    @relation( fields: [emailTextId], references: [id], onDelete: Cascade)
+  groups        UPP_Grouplist[]
+  events        UPP_Event[]
+  batchToDo     Int?
+  batchDone     Int? 
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_ContactEvents {
+  contact       UPP_Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  contactId     String 
+  event         UPP_Event        @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId       String
+  counter       Int              @default(0)
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+  @@id([contactId, eventId])
+}
+
+model UPP_Event {
+  id            String @default(cuid()) @id
+  name          String
+  campaign      UPP_Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade) 
+  campaignId    String
+  eventContacts UPP_ContactEvents[]
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_Emailtext {
+  id            String           @default(cuid()) @id
+  nom           String
+  content       String
+  design        String?
+  campaigns     UPP_Campaign[]
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_Demande{
+  id            String           @default(cuid()) @id
+  quantity      Int?
+  finition      String?
+  content       String
+  contact       UPP_Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  contactId     String
+
+  createdAt     DateTime         @default(now()) @map(name: "created_at")
+  updatedAt     DateTime         @updatedAt @map(name: "updated_at")
+}
+
+model UPP_ContactFacture{
+  id                 String           @default(cuid()) @id
+  docId              String           @unique
+  docName            String
+  date               DateTime
+  montant            String
+  contact            UPP_Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  contactId          String
+  campagnes          String?
+  fromBcdi           Boolean
+  bcdiName           String?
+  bcdiDate           DateTime?
+  createdAt          DateTime         @default(now()) @map(name: "created_at")
+  updatedAt          DateTime         @updatedAt @map(name: "updated_at")
+}

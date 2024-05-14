@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "nom": "Groupe 1"
+    },
+    {   "id": 2,
+        "nom": "Groupe 2"
+    },
+    {
+        "id": 3,
+        "nom": "Groupe 3"
+    },
+    {
+        "id": 4,
+        "nom": "Groupe 4"
+    },
+    {
+        "id": 5,
+        "nom": "Groupe 5"
+    },
+    {
+        "id": 6,
+        "nom": "Groupe 6"
+    },
+    {
+        "id": 7,
+        "nom": "Groupe 7"
+    },
+    {
+        "id": 8,
+        "nom": "Groupe 8"
+    }
+]

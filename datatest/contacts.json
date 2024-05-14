@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nom": "Torreto",
+        "prenom": "Dominique",
+        "email": "dom@universal.com",
+        "date": "07/11/2021"
+    },
+    {
+        "id": 2,
+        "nom": "Roy",
+        "prenom": "Logan",
+        "email": "logan@roy.fr",
+        "date": "15/09/2000"
+    },
+    {
+        "id": 3,
+        "nom": "Warldof",
+        "prenom": "Blair",
+        "email": "miss-b@hotmail.fr",
+        "date": "10/03/2023"
+    }
+]
