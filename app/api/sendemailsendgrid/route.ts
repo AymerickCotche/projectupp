@@ -77,7 +77,7 @@ export async function GET(req: NextRequest){
           const href = $(this).attr('href')
           const spanText = $(this).find('span').text()
 
-          $(this).attr('href', `https://upp-two.vercel.app/api/sendemail/updateopenedemail?openedEventId=XX-EVENTIDTOREPLACE--XX${countlink}&contactId=XX-CONTACTTOREPLACE--XX&redirect=${href}`).html()
+          $(this).attr('href', `https://projectupp.vercel.app/api/sendemail/updateopenedemail?openedEventId=XX-EVENTIDTOREPLACE--XX${countlink}&contactId=XX-CONTACTTOREPLACE--XX&redirect=${href}`).html()
   
           linkDatas.push({
             countlink,
@@ -146,7 +146,7 @@ export async function GET(req: NextRequest){
     
         const emailPromises = batch.map(async (email) => {
 
-          const imgTag = `<img src="https://upp-two.vercel.app/api/sendemail/updateopenedemail?openedEventId=${openedEventId}&contactId=${email.id}" alt="icon" style="display:none;">`
+          const imgTag = `<img src="https://projectupp.vercel.app/api/sendemail/updateopenedemail?openedEventId=${openedEventId}&contactId=${email.id}" alt="icon" style="display:none;">`
 
           const bodyStartIndex = updatedHtmlString.indexOf('<body')
 
