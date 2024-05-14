@@ -32,7 +32,7 @@ export async function POST(req: NextRequest){
           
           const cron = `0,${minutes} ${hours} ${dayOfMonth} ${month} ${dayOfWeek} ${year}`;
           
-          const response = await fetch(`https://www.easycron.com/rest/add?token=${process.env.NEXT_PUBLIC_EASYCRON_API_KEY}&cron_expression=${cron}&url=https://upp-two.vercel.app/api/sendemailsendgrid?campaignId=${campaignId}`)
+          const response = await fetch(`https://www.easycron.com/rest/add?token=${process.env.NEXT_PUBLIC_EASYCRON_API_KEY}&cron_expression=${cron}&url=https://projectupp.vercel.app/api/sendemailsendgrid?campaignId=${campaignId}`)
 
           const result = await response.json()
 
