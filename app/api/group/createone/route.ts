@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth/next"
 import prisma from "@/lib/prisma"
 import { authOptions } from "@/lib/auth"
 
-export const maxDuration = 300
+export const maxDuration = 60
 export const revalidate = 0
 
 export async function POST(req: NextRequest){

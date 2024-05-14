@@ -6,7 +6,7 @@ import prisma from "@/lib/prisma"
 import { authOptions } from "@/lib/auth"
 import sellsy from '@/lib/sellsy'
 
-export const maxDuration = 300
+export const maxDuration = 60
 export const revalidate = 0
 
 type ContactWithCampaigns = Prisma.UPP_ContactGetPayload<{

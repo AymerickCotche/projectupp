@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail'
 
 import prisma from "@/lib/prisma"
 
-export const maxDuration = 300
+export const maxDuration = 60
 export const revalidate = 0
 
 

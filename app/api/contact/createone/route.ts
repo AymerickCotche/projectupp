@@ -11,7 +11,7 @@ interface Group {
     updatedAt: string
   }
 
-export const maxDuration = 300
+export const maxDuration = 60
 export const revalidate = 0
 
 export async function POST(req: NextRequest){
