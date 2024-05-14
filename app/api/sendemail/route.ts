@@ -60,7 +60,7 @@ export async function GET(req: NextRequest){
         const uniqueContactArray = Array.from(uniqueObjectsMap.values())
 
         const $ = cheerio.load(JSON.parse(campaign.emailText.content))
-
+      
         type objLink = {
           countlink: number
           spanText: string
