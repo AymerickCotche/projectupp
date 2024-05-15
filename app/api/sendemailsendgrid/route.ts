@@ -161,7 +161,7 @@ export async function GET(req: NextRequest){
             to: email.email, // Change to your recipient
             from: {
               email: 'hello@dimexoi.fr',
-              name: 'DIMEXOI'
+              name: 'TEST UPP'
             }, // Change to your verified sender
             subject: `${campaign.emailText.nom}`,
             html: finalEmailString,
