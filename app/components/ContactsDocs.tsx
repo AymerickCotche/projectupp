@@ -45,7 +45,7 @@ function ContactsDocs() {
       dispatch(setDisplayedDocs(_.orderBy(docs, 'invoiceDateTimeStamp', 'desc').slice((page - 1) * 20, page * 20)))
     }
 
-  }, [docs, page])
+  }, [dispatch, docs, page])
 
   const handlePrevPage = () => {
     if (page > 1) {
